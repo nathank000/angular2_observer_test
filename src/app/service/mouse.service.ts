@@ -10,14 +10,14 @@ import { Subscriber } from 'rxjs/Subscriber';
 @Injectable()
 export class MouseService {
     mLocs$: Subject<MouseLocation>;
-    lineOneSubscriber;
+    mouseLocationSubscriber;
     colorsArray = Array<string>();
 
     constructor() {
 
         this.mLocs$ = new Subject<MouseLocation>();
 
-        this.lineOneSubscriber = this.mLocs$.subscribe(
+        this.mouseLocationSubscriber = this.mLocs$.subscribe(
             X => this.handleNext(X),
             err => this.handleSubscriberError(err),
             () => console.log('subscriber recd complete')
